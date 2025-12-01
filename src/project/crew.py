@@ -26,6 +26,12 @@ class Project():
             max_retry_limit=3
         )
 
+    @agent
+    def frontend_engineer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['frontend_engineer'], #type: ignore[index]
+        )
+
     @task
     def design_task(self) -> Task:
         return Task(
@@ -36,6 +42,12 @@ class Project():
     def code_task(self) -> Task:
         return Task(
             config=self.tasks_config['code_task'],  # type: ignore[index]
+        )
+
+    @task
+    def frontend_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['frontend_task'], # type: ignore[index]
         )
 
     @crew

@@ -18,8 +18,8 @@ def run():
     Run the crew.
     """
     inputs = {
-        'requirements': 'a calculator',
-        'module_name': 'claculator',
+        'requirements': 'a calculator with all available mathematical operations',
+        'module_name': 'calculator',
         'class_name': 'Calculator'
     }
 
