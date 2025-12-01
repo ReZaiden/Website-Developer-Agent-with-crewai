@@ -16,10 +16,26 @@ class Project():
             config=self.agents_config['engineering_lead'], # type: ignore[index]
         )
 
+    @agent
+    def backend_engineer(self) -> Agent:
+        return Agent(
+            config=self.agents_config['backend_engineer'],  # type: ignore[index]
+            allow_code_execution=True,
+            code_execution_mode="safe",  # Uses Docker for safety
+            max_execution_time=500,
+            max_retry_limit=3
+        )
+
     @task
     def design_task(self) -> Task:
         return Task(
             config=self.tasks_config['design_task'], # type: ignore[index]
+        )
+
+    @task
+    def code_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['code_task'],  # type: ignore[index]
         )
 
     @crew
